@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>English Literature – Grade 7 | Question Paper with Hidden Answers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-dark: #2c4a7c;
+            --accent: #e67e22;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.07" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat;
+            background-size: cover;
+            opacity: 0.15;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .subtitle { font-size: 1.4rem; opacity: 0.9; margin: 8px 0; }
+
+        .marks {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 50px;
+            margin-top: 16px;
+        }
+
+        main { padding: 40px; }
+
+        h2.section-title {
+            color: var(--primary);
+            font-size: 2.1rem;
+            margin: 50px 0 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .question-block {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 32px;
+            border-left: 6px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .question-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(74,111,165,0.15);
+        }
+
+        h3.q-number {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3.q-number::before {
+            content: attr(data-q);
+            background: var(--primary);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .extract {
+            background: #eef4ff;
+            border-left: 5px solid var(--primary);
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        .mcq-list { counter-reset: mcq; list-style: none; }
+
+        .mcq-list li {
+            counter-increment: mcq;
+            margin-bottom: 18px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .mcq-list li::before {
+            content: counter(mcq) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .options { list-style: none; margin-top: 10px; padding-left: 20px; }
+
+        .options li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .options li::before {
+            content: "(" attr(data-label) ")";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        ol.sub-questions {
+            list-style-type: lower-alpha;
+            margin: 16px 0 16px 24px;
+        }
+
+        ol.sub-questions li {
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        .note {
+            background: #fff3e0;
+            border-left: 5px solid #f39c12;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 0.98rem;
+        }
+
+        /* Answer styling */
+        .answer-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin: 10px 0 6px;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .answer-toggle:hover { background: var(--primary-dark); }
+
+        .answer {
+            display: none;
+            background: #e8f5e9;
+            border-left: 5px solid #43a047;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-radius: 8px;
+            font-size: 0.98rem;
+        }
+
+        .answer.show { display: block; }
+
+        .answer strong { color: #1b5e20; }
+
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 24px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 20px; }
+            header { padding: 50px 25px 35px; }
+            h1 { font-size: 2.6rem; }
+            main { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>English Literature</h1>
+        <div class="subtitle">Grade 7 — Mid-Term / Unit Assessment (with Hidden Answers)</div>
+        <div class="marks">Total Marks: 60</div>
+    </header>
+
+    <main>
+        <h2 class="section-title">Section A — Multiple Choice Questions</h2>
+        <div class="question-block">
+            <h3 class="q-number" data-q="1">Question 1 <span style="font-size:1.1rem; opacity:0.8;">(12 × 1 = 12)</span></h3>
+            <p><strong>Attempt all questions. Each carries 1 mark.</strong></p>
+            <p class="note"><strong>Note:</strong> Questions are based on prose & poetry lessons from Gul Mohar Class 7. Vocabulary items included.</p>
+
+            <ol class="mcq-list">
+                <li>In "The Scholarship Jacket", who raised Martha?<br>
+                    <ul class="options">
+                        <li data-label="a">Her parents</li>
+                        <li data-label="b">Her grandparents</li>
+                        <li data-label="c">Her aunt and uncle</li>
+                        <li data-label="d">School hostel</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> b) Her grandparents<br>
+                        <strong>Explanation:</strong> Martha was raised by her grandparents after her parents could not support her / passed away.
+                    </div>
+                </li>
+                <li>What colour is the scholarship jacket?<br>
+                    <ul class="options">
+                        <li data-label="a">Red and blue</li>
+                        <li data-label="b">Gold and green</li>
+                        <li data-label="c">Black and white</li>
+                        <li data-label="d">Purple and silver</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> b) Gold and green<br>
+                        <strong>Explanation:</strong> The jacket is described as gold with a big gold 'S' and name in gold letters (often with green elements in descriptions).
+                    </div>
+                </li>
+                <li>In "My Unknown Friend", where does the narrator meet the friendly stranger?<br>
+                    <ul class="options">
+                        <li data-label="a">In a park</li>
+                        <li data-label="b">On a train</li>
+                        <li data-label="c">At school</li>
+                        <li data-label="d">In a market</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> b) On a train<br>
+                        <strong>Explanation:</strong> The humorous mistaken-identity incident occurs in a train compartment.
+                    </div>
+                </li>
+                <li>What nickname did the Germans give to the brave women pilots in "Night Witches"?<br>
+                    <ul class="options">
+                        <li data-label="a">Sky Queens</li>
+                        <li data-label="b">Night Witches</li>
+                        <li data-label="c">Star Warriors</li>
+                        <li data-label="d">Moon Angels</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> b) Night Witches<br>
+                        <strong>Explanation:</strong> The Germans called the 588th Night Bomber Regiment "Nachthexen" (Night Witches) due to their stealthy night raids.
+                    </div>
+                </li>
+                <li>Choose the synonym of "valedictorian":<br>
+                    <ul class="options">
+                        <li data-label="a">Topper / highest grader</li>
+                        <li data-label="b">Athlete</li>
+                        <li data-label="c">Artist</li>
+                        <li data-label="d">Musician</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> a) Topper / highest grader<br>
+                        <strong>Explanation:</strong> Valedictorian refers to the student with the highest academic rank who delivers the farewell address.
+                    </div>
+                </li>
+                <li>Antonym of "brave" (from Night Witches context):<br>
+                    <ul class="options">
+                        <li data-label="a">Courageous</li>
+                        <li data-label="b">Fearful</li>
+                        <li data-label="c">Strong</li>
+                        <li data-label="d">Smart</li>
+                    </ul>
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer">
+                        <strong>Answer:</strong> b) Fearful<br>
+                        <strong>Explanation:</strong> Brave × fearful / cowardly.
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <h2 class="section-title">Section B — Prose</h2>
+        <p class="note"><strong>Answer any TWO out of the three extracts given below.</strong> (2 × 12 = 24)</p>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="2">Question 2</h3>
+            <div class="extract">
+                “I had been a straight A student since first grade... My oldest sister, Rosie, had won the jacket a few years back, and I fully expected to also... The scholarship jacket had a big gold S on the left front side and your name written in gold letters on the pocket.”
+            </div>
+            <ol class="sub-questions">
+                <li>Who is the speaker / narrator? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Martha<br><strong>Explanation:</strong> The story is narrated in the first person by Martha.</div>
+                </li>
+                <li>What is special about the scholarship jacket? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> It is awarded annually to the student with the highest grades; it has a big gold 'S' and the winner's name in gold letters on the pocket.<br><strong>Explanation:</strong> It symbolizes academic excellence and is a source of great pride.</div>
+                </li>
+                <li>Why was Martha so confident she would win it? (Recall + Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> She had been a straight-A student since first grade, and her older sister Rosie had previously won it.<br><strong>Explanation:</strong> Her consistent academic performance and family history gave her confidence.</div>
+                </li>
+                <li>What injustice did Martha face later in the story? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> The principal told her she would only receive the jacket if her grandfather paid $15, even though she had earned it through grades.<br><strong>Explanation:</strong> The school bent the rules to favor a richer student, showing discrimination based on race and money.</div>
+                </li>
+                <li>If you were Martha’s grandfather, would you have paid the $15? Why / why not? (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> No, I would not pay — because paying would mean accepting and supporting an unfair, discriminatory rule.<br><strong>Explanation:</strong> The jacket should be awarded purely on merit; paying rewards injustice. (Accept reasoned personal responses.)</div>
+                </li>
+                <li>What lesson does the story teach about hard work and fairness? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Hard work deserves fair recognition regardless of race, money, or background; one should stand up against injustice with dignity.<br><strong>Explanation:</strong> The story highlights discrimination and the importance of integrity and self-respect.</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="3">Question 3</h3>
+            <div class="extract">
+                “The stranger entered the compartment and at once began talking to me as though we had known each other for years... ‘Old man,’ he said warmly, ‘it’s good to see you again!’ I was completely puzzled.”
+            </div>
+            <ol class="sub-questions">
+                <li>Where is this event happening? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> In a train compartment<br><strong>Explanation:</strong> The meeting takes place during a train journey.</div>
+                </li>
+                <li>How does the stranger behave? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> He behaves very familiarly and warmly, as if they are old friends.<br><strong>Explanation:</strong> He greets the narrator enthusiastically and talks freely.</div>
+                </li>
+                <li>Why is the narrator confused? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Because he has never met the stranger before.<br><strong>Explanation:</strong> The stranger acts like they know each other, but the narrator does not recognize him at all.</div>
+                </li>
+                <li>What makes this meeting interesting / funny? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> The mistaken identity and the stranger's extreme confidence create humorous awkwardness.<br><strong>Explanation:</strong> The contrast between the stranger's familiarity and the narrator's confusion is comical.</div>
+                </li>
+                <li>Have you ever met someone who acted like they knew you? Share briefly. (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> Yes, once someone mistook me for their cousin at a wedding and talked for 10 minutes before realizing the mistake.<br><strong>Explanation:</strong> Personal experience (accept any reasonable short answer).</div>
+                </li>
+                <li>What does the story show about human behaviour and friendliness? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Some people are naturally outgoing and assume familiarity easily; friendliness can sometimes lead to funny misunderstandings.<br><strong>Explanation:</strong> The story celebrates warmth while showing how assumptions can create humor.</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="4">Question 4</h3>
+            <div class="extract">
+                “They flew old, slow wooden planes at night... Their engines were so quiet that the only sound was the wind through the struts—like witches on broomsticks. That is how the Germans named them—Night Witches.”
+            </div>
+            <ol class="sub-questions">
+                <li>Who are the "Night Witches"? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> The women pilots of the Soviet 588th Night Bomber Regiment.<br><strong>Explanation:</strong> All-female unit in WWII known for night bombing missions.</div>
+                </li>
+                <li>Why were their planes difficult to detect? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> They flew old, slow, wooden planes with quiet engines at night.<br><strong>Explanation:</strong> The planes made almost no engine noise; only wind sound was heard.</div>
+                </li>
+                <li>Why did the Germans fear them? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Because of their stealthy, accurate night attacks that were hard to defend against.<br><strong>Explanation:</strong> Their surprise raids caused significant damage and psychological fear.</div>
+                </li>
+                <li>What qualities of the pilots impress you most? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Courage, determination, skill, and bravery in dangerous conditions with inferior equipment.<br><strong>Explanation:</strong> Flying at night in old planes under enemy fire shows exceptional heroism.</div>
+                </li>
+                <li>If you could ask one Night Witch a question, what would it be? (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> “What gave you the strength to keep flying night after night despite the danger?”<br><strong>Explanation:</strong> Personal response (accept thoughtful questions).</div>
+                </li>
+                <li>What does their story tell us about courage? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> True courage is shown by ordinary people (especially women in this case) doing extraordinary things in the face of fear and hardship.<br><strong>Explanation:</strong> They defied stereotypes and risked their lives for their country.</div>
+                </li>
+            </ol>
+        </div>
+
+        <h2 class="section-title">Section C — Poetry</h2>
+        <p class="note"><strong>Answer any TWO out of the three extracts given below.</strong> (2 × 12 = 24)</p>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="5">Question 5</h3>
+            <div class="extract">
+                “A sea of foliage girds our garden-ground, <br>
+                In which, like a shipwrecked pearl, the moon lies drowned...”
+            </div>
+            <ol class="sub-questions">
+                <li>What does the poet compare the garden to? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> A sea (of foliage)<br><strong>Explanation:</strong> The garden is surrounded by a “sea of foliage”.</div>
+                </li>
+                <li>Why is “sea of foliage” a suitable image? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> It suggests vastness, movement, and depth — like waves of leaves surrounding the garden.<br><strong>Explanation:</strong> Creates a sense of being enclosed in a green, flowing, ocean-like space.</div>
+                </li>
+                <li>How does this picture make you feel? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> Calm, peaceful, and enchanted — like being in a magical, quiet world.<br><strong>Explanation:</strong> Personal response (accept calm, serene, dreamy feelings).</div>
+                </li>
+                <li>Describe your favourite natural place using one simile. (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> My favourite hill station looks like a green carpet spread under the sky.<br><strong>Explanation:</strong> Accept any creative, correct simile.</div>
+                </li>
+                <li>What other beautiful image do you find in the lines? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> The moon is compared to a “shipwrecked pearl” drowned in the foliage.<br><strong>Explanation:</strong> Vivid, delicate, and romantic image of the moon.</div>
+                </li>
+                <li>What mood does the poem create? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Peaceful, dreamy, serene, and slightly mysterious.<br><strong>Explanation:</strong> The imagery evokes tranquility and wonder.</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="6">Question 6</h3>
+            <div class="extract">
+                “O woodman, spare that tree! <br>
+                Touch not a single bough! <br>
+                In youth it sheltered me, <br>
+                And I’ll protect it now...”
+            </div>
+            <ol class="sub-questions">
+                <li>Who is requesting the woodcutter? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> The poet / speaker<br><strong>Explanation:</strong> The speaker pleads with the woodman.</div>
+                </li>
+                <li>Why does the speaker want to save the tree? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> It sheltered him in his youth / childhood.<br><strong>Explanation:</strong> The tree holds sentimental value and memories.</div>
+                </li>
+                <li>What services does a tree provide us? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Shade, oxygen, fruits, wood, prevents soil erosion, supports wildlife, cools the air, etc.<br><strong>Explanation:</strong> Trees are essential for life and environment.</div>
+                </li>
+                <li>What small step can you take to save trees? (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> Plant one tree every year / use paper bags instead of plastic / avoid wasting paper.<br><strong>Explanation:</strong> Accept practical, realistic steps.</div>
+                </li>
+                <li>Which line shows deep emotion? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> “In youth it sheltered me, / And I’ll protect it now...”<br><strong>Explanation:</strong> Shows gratitude and determination.</div>
+                </li>
+                <li>How is this poem relevant today? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> It reminds us to protect trees and nature in the face of deforestation and climate change.<br><strong>Explanation:</strong> Environmental message is more urgent now than ever.</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="question-block">
+            <h3 class="q-number" data-q="7">Question 7</h3>
+            <div class="extract">
+                “Rise, brothers, rise; the wakening skies pray to the morning light, <br>
+                The wind lies asleep in the arms of the dawn like a child that has cried all night...”
+            </div>
+            <ol class="sub-questions">
+                <li>Who is being called to rise? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Brothers (fishermen / comrades / people)<br><strong>Explanation:</strong> The poet calls his fellow fishermen / brothers to wake up.</div>
+                </li>
+                <li>What time of day is shown in the poem? (Understanding)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Early morning / dawn<br><strong>Explanation:</strong> “Wakening skies”, “morning light”, “dawn” indicate sunrise.</div>
+                </li>
+                <li>What emotion does the poet express? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Enthusiasm, hope, energy, and encouragement.<br><strong>Explanation:</strong> The call to rise is full of vitality and optimism.</div>
+                </li>
+                <li>Write 2-3 lines encouraging someone to start a new journey. (Application)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Sample Answer:</strong> Rise, friend, rise! A new day awaits with open arms. Step forward with courage — your dreams are calling you now.<br><strong>Explanation:</strong> Accept any positive, motivational lines.</div>
+                </li>
+                <li>Which comparison of the wind do you like most? (Recall)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> “The wind lies asleep in the arms of the dawn like a child that has cried all night”<br><strong>Explanation:</strong> Gentle, tender, and vivid personification.</div>
+                </li>
+                <li>What does the sea represent in this poem? (Critical Analysis)
+                    <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer"><strong>Answer:</strong> Livelihood, adventure, challenge, and opportunity.<br><strong>Explanation:</strong> For fishermen, the sea is both provider and place of hard work.</div>
+                </li>
+            </ol>
+        </div>
+    </main>
+
+    <footer>
+        <p>Best of luck! • Gul Mohar Class 7 • Prepared with love for learning</p>
+    </footer>
+</div>
+
+<script>
+// Optional: better UX — close other answers when one is opened (accordion style)
+document.querySelectorAll('.answer-toggle').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const wasHidden = !answer.classList.contains('show');
+
+        // Close all others
+        document.querySelectorAll('.answer.show').forEach(el => {
+            if (el !== answer) el.classList.remove('show');
+        });
+
+        // Toggle current
+        if (wasHidden) answer.classList.add('show');
+        else answer.classList.remove('show');
+    });
+});
+</script>
+
+</body>
+</html>
